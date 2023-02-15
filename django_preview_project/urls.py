@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework_swagger.views import get_swagger_view
 from django_preview_project.user.views import UserViewSet
-from django_preview_project.post.views import PostListViewSet
+from django_preview_project.post.views import PostListViewSet, LikeListViewSet, DislikeListViewSet, CommentListViewSet
 from rest_framework import routers, serializers, viewsets
 
 schema_view = get_swagger_view(title="Swagger Docs")
@@ -12,6 +12,9 @@ router = routers.DefaultRouter()
 # add swagger to the router
 router.register(r'users', UserViewSet)
 router.register(r'posts', PostListViewSet)
+router.register(r'likes', LikeListViewSet)
+router.register(r'dislikes', DislikeListViewSet)
+router.register(r'comments', CommentListViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

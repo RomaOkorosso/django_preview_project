@@ -11,16 +11,16 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
 class LikeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Like
-        fields = ['url', 'user']
+        fields = ['url', 'post', 'author']
 
 
 class DislikeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Dislike
-        fields = ['url', 'user']
+        fields = ['url', 'post', 'author']
 
 
 class CommentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Comment
-        fields = ['url', 'user', 'content']
+        fields = ['url', 'author', 'content', 'post']
